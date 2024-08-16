@@ -1,0 +1,41 @@
+<div class="container">
+   <table class="table table-bordered table-striped table-responsive mt-5">
+      <thead>
+        <tr class="text-center">
+          <th>S.No</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th colspan="2">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of user; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            <button class="btn btn-info mx-2" (click)="editUser(user)">Edit</button>
+            <button class="btn btn-danger mx-2" (click)="deleteUser(user)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <br><br><br>
+   <form [formGroup]="StudentForm">
+   <div class="mb-3 mt-3">
+     <label>Name</label>
+     <input type="text" class="form-control" placeholder="Enter Name" formControlName="name">
+   </div>
+   <div class="mb-3">
+     <label>Email</label>
+     <input type="email" class="form-control" placeholder="Enter Email" formControlName="email">
+   </div>
+   <button class="btn btn-primary float-end" (click)="addNewUser()">
+      {{ editingUser ? 'Update' : '+ Add' }}
+   </button>
+   <br><br>
+ </form>
+ 
+</div>
+
+ 
